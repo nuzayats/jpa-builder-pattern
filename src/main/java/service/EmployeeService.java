@@ -69,7 +69,7 @@ public class EmployeeService {
         private Set<Long> projectIds = new HashSet<>();
         private Set<String> phoneNumbers = new HashSet<>();
 
-        public Builder(final long deptId, final String name) {
+        private Builder(final long deptId, final String name) {
             this.deptId = deptId;
             this.name = name;
         }
