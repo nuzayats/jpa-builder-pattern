@@ -6,7 +6,7 @@ import entity.Phone;
 import entity.Project;
 
 import javax.persistence.EntityManager;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -87,7 +87,7 @@ public class EmployeeService {
         }
 
         public Builder phoneNumbers(String... numbers) {
-            phoneNumbers.addAll(Arrays.asList(numbers));
+            Collections.addAll(phoneNumbers, numbers);
             return this;
         }
 
