@@ -79,10 +79,8 @@ public class EmployeeService {
             return this;
         }
 
-        public Builder projectIds(long... ids) {
-            for (final long id : ids) {
-                projectIds.add(id);
-            }
+        public Builder projectIds(Long... ids) {
+            Collections.addAll(projectIds, ids);
             return this;
         }
 
