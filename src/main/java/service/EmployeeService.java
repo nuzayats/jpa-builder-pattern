@@ -74,8 +74,8 @@ public class EmployeeService {
             this.name = name;
         }
 
-        public Builder temporary() {
-            temporary = true;
+        public Builder temporary(final boolean temporary) {
+            this.temporary = temporary;
             return this;
         }
 

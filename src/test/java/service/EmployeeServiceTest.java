@@ -83,7 +83,7 @@ public class EmployeeServiceTest {
         em.getTransaction().begin();
 
         final long savedEmployeeId = sut.builder(engineeringDeptId, "Jane Doe")
-                .temporary()
+                .temporary(true)
                 .projectIds(project1Id, project2Id)
                 .phoneNumbers("000-0000-0001", "000-0000-0002", "000-0000-0003")
                 .build();
