@@ -49,8 +49,8 @@ public class EmployeeService {
             final Phone phone = new Phone();
             phone.setNumber(phoneNumber);
             phone.setEmployee(employee);
-            employee.getPhones().add(phone);
             em.persist(phone);
+            employee.getPhones().add(phone);
         }
 
         em.flush(); // making sure a generated id is present
