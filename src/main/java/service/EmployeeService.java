@@ -32,6 +32,7 @@ public class EmployeeService {
         // making a relation between employee and dept
         final Dept dept = em.find(Dept.class, deptId);
         employee.setDept(dept);
+        em.persist(employee);
         dept.getEmployees().add(employee);
 
         // making relations between employee and projects
@@ -52,7 +53,6 @@ public class EmployeeService {
             em.persist(phone);
         }
 
-        em.persist(employee);
         em.flush(); // making sure a generated id is present
 
         return employee.getId();
