@@ -28,6 +28,8 @@ public class EmployeeService {
         final Employee employee = new Employee();
         employee.setName(name);
         employee.setTemporary(temporary);
+        employee.setProjects(new HashSet<>());
+        employee.setPhones(new HashSet<>());
 
         // making a relation between employee and dept
         final Dept dept = em.find(Dept.class, deptId);
@@ -36,7 +38,6 @@ public class EmployeeService {
         dept.getEmployees().add(employee);
 
         // making relations between employee and projects
-        employee.setProjects(new HashSet<>());
         for (final Long projectId : projectIds) {
             final Project project = em.find(Project.class, projectId);
             project.getEmployees().add(employee);
@@ -44,7 +45,6 @@ public class EmployeeService {
         }
 
         // creating phones
-        employee.setPhones(new HashSet<>());
         for (final String phoneNumber : phoneNumbers) {
             final Phone phone = new Phone();
             phone.setNumber(phoneNumber);
