@@ -14,7 +14,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertThat;
 
 public class EmployeeServiceTest {
@@ -99,8 +101,8 @@ public class EmployeeServiceTest {
         assertThat(employee.getPhones().size(), is(3));
         assertThat(employee.getProjects().size(), is(2));
         assertThat(employee.getTemporary(), is(Boolean.TRUE));
-        assertThat(em.find(Project.class, project1Id).getEmployees().iterator().next().getId(), is(savedEmployeeId));
-        assertThat(em.find(Project.class, project2Id).getEmployees().iterator().next().getId(), is(savedEmployeeId));
+        assertThat(em.find(Project.class, project1Id).getEmployees(), hasItem(hasProperty("id", is(savedEmployeeId))));
+        assertThat(em.find(Project.class, project2Id).getEmployees(), hasItem(hasProperty("id", is(savedEmployeeId))));
     }
 
     @After
