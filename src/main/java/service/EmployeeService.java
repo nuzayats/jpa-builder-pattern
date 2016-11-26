@@ -90,6 +90,7 @@ public class EmployeeService {
         }
 
         public long build() {
+            // In reality, passing "this" instead of actual values (deptId, name, ...) is recommended
             return EmployeeService.this.create(deptId, name, temporary, projectIds, phoneNumbers);
         }
     }
